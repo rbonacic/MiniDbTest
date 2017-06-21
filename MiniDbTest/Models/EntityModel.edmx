@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="aeghealthModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAnswer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConsumerHistoryID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="200" />
+          <Property Name="CreateDt" Type="datetime" />
+          <Property Name="LastModDt" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="ModifiedByID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblConsumer">
+          <Key>
+            <PropertyRef Name="ConsumerID" />
+          </Key>
+          <Property Name="ConsumerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="LN" Type="varchar" MaxLength="30" />
+          <Property Name="FN" Type="varchar" MaxLength="30" />
+          <Property Name="MI" Type="varchar" MaxLength="1" />
+          <Property Name="LNSoundex" Type="char" MaxLength="4" />
+          <Property Name="MlAddr1" Type="varchar" MaxLength="50" />
+          <Property Name="_MlAddr2" Type="varchar" MaxLength="50" />
+          <Property Name="MlCity" Type="varchar" MaxLength="50" />
+          <Property Name="MlState" Type="varchar" MaxLength="2" />
+          <Property Name="MlZip" Type="varchar" MaxLength="12" />
+          <Property Name="AcTel" Type="varchar" MaxLength="3" />
+          <Property Name="Tel" Type="varchar" MaxLength="7" />
+          <Property Name="RaceID" Type="int" />
+          <Property Name="_SSN" Type="varchar" MaxLength="9" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="bChildren" Type="tinyint" />
+          <Property Name="NumChildren" Type="tinyint" />
+          <Property Name="MaritalStatusID" Type="int" />
+          <Property Name="bFamilyIns" Type="tinyint" />
+          <Property Name="_bIns" Type="tinyint" />
+          <Property Name="bHasDr" Type="tinyint" />
+          <Property Name="DrName" Type="varchar" MaxLength="100" />
+          <Property Name="DrLocCit" Type="varchar" MaxLength="50" />
+          <Property Name="DrLocSt" Type="varchar" MaxLength="2" />
+          <Property Name="Gender" Type="varchar" MaxLength="1" />
+          <Property Name="EmploymentStatusID" Type="int" />
+          <Property Name="bFamHisCancer" Type="tinyint" />
+          <Property Name="bFamHisHd" Type="tinyint" />
+          <Property Name="bFamHisDiabetes" Type="tinyint" />
+          <Property Name="InsCarrier" Type="varchar" MaxLength="128" />
+          <Property Name="bFailedValidateAddr" Type="tinyint" />
+          <Property Name="NAGroupName" Type="varchar" MaxLength="128" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="ModifiedByID" Type="int" />
+          <Property Name="LastModDt" Type="datetime" />
+          <Property Name="CreateDT" Type="datetime" />
+          <Property Name="Suffix" Type="char" MaxLength="4" />
+          <Property Name="Lat" Type="float" />
+          <Property Name="Lon" Type="float" />
+          <Property Name="GeoResult" Type="char" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="InsProviderID" Type="int" />
+          <Property Name="YoungestChildYOB" Type="int" />
+          <Property Name="bFamHisHighBldPrs" Type="tinyint" />
+          <Property Name="bFamHisOsteo" Type="tinyint" />
+          <Property Name="bFamHisStroke" Type="tinyint" />
+          <Property Name="PreferredHospital" Type="varchar" MaxLength="128" />
+          <Property Name="InsCarrierTypeID" Type="int" />
+          <Property Name="bDoNotMarketTo" Type="tinyint" />
+          <Property Name="ssnlastfour" Type="varchar" MaxLength="4" />
+          <Property Name="Custom1" Type="varchar" MaxLength="150" />
+          <Property Name="Custom2" Type="varchar" MaxLength="50" />
+          <Property Name="Custom3" Type="varchar" MaxLength="50" />
+          <Property Name="Custom4" Type="varchar" MaxLength="50" />
+          <Property Name="Custom5" Type="varchar" MaxLength="50" />
+          <Property Name="Custom6" Type="varchar" MaxLength="50" />
+          <Property Name="Custom7" Type="varchar" MaxLength="50" />
+          <Property Name="Custom8" Type="varchar" MaxLength="50" />
+          <Property Name="Custom9" Type="varchar" MaxLength="50" />
+          <Property Name="Custom10" Type="varchar" MaxLength="50" />
+          <Property Name="mailcarrt" Type="varchar" MaxLength="50" />
+          <Property Name="mailerrorcodes" Type="varchar" MaxLength="50" />
+          <Property Name="maillotnum" Type="varchar" MaxLength="50" />
+          <Property Name="maildpc" Type="varchar" MaxLength="50" />
+          <Property Name="mailpresortid" Type="varchar" MaxLength="50" />
+          <Property Name="mailtrayid" Type="varchar" MaxLength="50" />
+          <Property Name="mailpackageid" Type="varchar" MaxLength="50" />
+          <Property Name="mailendorsementline" Type="varchar" MaxLength="50" />
+          <Property Name="maildpbarcode" Type="varchar" MaxLength="50" />
+          <Property Name="mailws" Type="varchar" MaxLength="50" />
+          <Property Name="tempid" Type="varchar" MaxLength="50" />
+          <Property Name="LastPHRMailDt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblConsumerHistory">
+          <Key>
+            <PropertyRef Name="ConsumerHistoryID" />
+          </Key>
+          <Property Name="ConsumerHistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConsumerID" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" />
+          <Property Name="bArth" Type="tinyint" />
+          <Property Name="bAsthma" Type="tinyint" />
+          <Property Name="bDiabetes" Type="tinyint" />
+          <Property Name="bHD" Type="tinyint" />
+          <Property Name="bHighBldPrs" Type="tinyint" />
+          <Property Name="bTobac" Type="tinyint" />
+          <Property Name="cdPhysEx" Type="smallint" />
+          <Property Name="cdPap" Type="smallint" />
+          <Property Name="cdMam" Type="smallint" />
+          <Property Name="cdPros" Type="smallint" />
+          <Property Name="Exer" Type="tinyint" />
+          <Property Name="Sys" Type="smallint" />
+          <Property Name="Dia" Type="smallint" />
+          <Property Name="HDL" Type="smallint" />
+          <Property Name="LDL" Type="smallint" />
+          <Property Name="Trigl" Type="smallint" />
+          <Property Name="CholLvl" Type="smallint" />
+          <Property Name="BodyFat" Type="float" />
+          <Property Name="Glucose" Type="smallint" />
+          <Property Name="bGlucoseFasting" Type="tinyint" />
+          <Property Name="WeightInLbs" Type="smallint" />
+          <Property Name="HeightInInches" Type="smallint" />
+          <Property Name="DEBatchID" Type="int" Nullable="false" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="ModifiedByID" Type="int" />
+          <Property Name="CreateDT" Type="datetime" />
+          <Property Name="LastModDt" Type="datetime" />
+          <Property Name="bHighBldPrsTreated" Type="tinyint" />
+          <Property Name="bSeasonalAllergies" Type="tinyint" />
+          <Property Name="bDepressed" Type="tinyint" />
+          <Property Name="bLostInterest" Type="tinyint" />
+          <Property Name="_bStressed" Type="tinyint" />
+          <Property Name="Heartburn" Type="tinyint" />
+          <Property Name="Headaches" Type="tinyint" />
+          <Property Name="Seatbelts" Type="tinyint" />
+          <Property Name="PSA" Type="float" />
+          <Property Name="Osteo" Type="float" />
+          <Property Name="bSpanish" Type="tinyint" />
+          <Property Name="bBPChk" Type="tinyint" />
+          <Property Name="bCholChk" Type="tinyint" />
+          <Property Name="DiabetesType" Type="tinyint" />
+          <Property Name="_bSpanishPHP" Type="tinyint" />
+          <Property Name="stress" Type="tinyint" />
+          <Property Name="bsmokelesstobac" Type="tinyint" />
+          <Property Name="bglucose" Type="tinyint" />
+          <Property Name="restingpulse" Type="smallint" />
+          <Property Name="hip" Type="float" />
+          <Property Name="waist" Type="float" />
+          <Property Name="vo2" Type="float" />
+          <Property Name="_vo2type" Type="int" />
+          <Property Name="_diamax" Type="smallint" />
+          <Property Name="_sysmax" Type="smallint" />
+          <Property Name="_heartratemax" Type="smallint" />
+          <Property Name="grip" Type="float" />
+          <Property Name="griptypeID" Type="int" />
+          <Property Name="curlup" Type="smallint" />
+          <Property Name="abstypeID" Type="int" />
+          <Property Name="pushup" Type="smallint" />
+          <Property Name="flexibility" Type="float" />
+          <Property Name="flexibilitytypeID" Type="int" />
+          <Property Name="cholesterolrange" Type="int" />
+          <Property Name="hdlrange" Type="int" />
+          <Property Name="ldlrange" Type="int" />
+          <Property Name="cholesterolratiorange" Type="int" />
+          <Property Name="triglrange" Type="int" />
+          <Property Name="glucoserange" Type="int" />
+          <Property Name="vo2maxrange" Type="int" />
+          <Property Name="griprange" Type="int" />
+          <Property Name="flexibilityrange" Type="int" />
+          <Property Name="absrange" Type="int" />
+          <Property Name="pushuprange" Type="int" />
+          <Property Name="weightrange" Type="int" />
+          <Property Name="bprange" Type="int" />
+          <Property Name="hbdrange" Type="int" />
+          <Property Name="bodyfatrange" Type="int" />
+          <Property Name="waisttohiprange" Type="int" />
+          <Property Name="psarange" Type="int" />
+          <Property Name="ScanID" Type="int" />
+          <Property Name="CompletedOnlineSurvey" Type="tinyint" />
+          <Property Name="OriginalScanID" Type="int" />
+          <Property Name="waistcircumferencerange" Type="int" />
+        </EntityType>
+        <EntityContainer Name="aeghealthModelStoreContainer">
+          <EntitySet Name="tblAnswer" EntityType="Self.tblAnswer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConsumer" EntityType="Self.tblConsumer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblConsumerHistory" EntityType="Self.tblConsumerHistory" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="aeghealthModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAnswer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConsumerHistoryID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDt" Type="DateTime" Precision="3" />
+          <Property Name="LastModDt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="ModifiedByID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblConsumer">
+          <Key>
+            <PropertyRef Name="ConsumerID" />
+          </Key>
+          <Property Name="ConsumerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="LN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MI" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LNSoundex" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="MlAddr1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_MlAddr2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MlCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MlState" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="MlZip" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="AcTel" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="RaceID" Type="Int32" />
+          <Property Name="C_SSN" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="bChildren" Type="Byte" />
+          <Property Name="NumChildren" Type="Byte" />
+          <Property Name="MaritalStatusID" Type="Int32" />
+          <Property Name="bFamilyIns" Type="Byte" />
+          <Property Name="C_bIns" Type="Byte" />
+          <Property Name="bHasDr" Type="Byte" />
+          <Property Name="DrName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DrLocCit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DrLocSt" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EmploymentStatusID" Type="Int32" />
+          <Property Name="bFamHisCancer" Type="Byte" />
+          <Property Name="bFamHisHd" Type="Byte" />
+          <Property Name="bFamHisDiabetes" Type="Byte" />
+          <Property Name="InsCarrier" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="bFailedValidateAddr" Type="Byte" />
+          <Property Name="NAGroupName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="ModifiedByID" Type="Int32" />
+          <Property Name="LastModDt" Type="DateTime" Precision="3" />
+          <Property Name="CreateDT" Type="DateTime" Precision="3" />
+          <Property Name="Suffix" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Lat" Type="Double" />
+          <Property Name="Lon" Type="Double" />
+          <Property Name="GeoResult" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InsProviderID" Type="Int32" />
+          <Property Name="YoungestChildYOB" Type="Int32" />
+          <Property Name="bFamHisHighBldPrs" Type="Byte" />
+          <Property Name="bFamHisOsteo" Type="Byte" />
+          <Property Name="bFamHisStroke" Type="Byte" />
+          <Property Name="PreferredHospital" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="InsCarrierTypeID" Type="Int32" />
+          <Property Name="bDoNotMarketTo" Type="Byte" />
+          <Property Name="ssnlastfour" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Custom1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Custom2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custom3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custom4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custom5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custom6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custom7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custom8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custom9" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Custom10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mailcarrt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mailerrorcodes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="maillotnum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="maildpc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mailpresortid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mailtrayid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mailpackageid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mailendorsementline" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="maildpbarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mailws" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tempid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastPHRMailDt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblConsumerHistory">
+          <Key>
+            <PropertyRef Name="ConsumerHistoryID" />
+          </Key>
+          <Property Name="ConsumerHistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConsumerID" Type="Int32" Nullable="false" />
+          <Property Name="EventID" Type="Int32" />
+          <Property Name="bArth" Type="Byte" />
+          <Property Name="bAsthma" Type="Byte" />
+          <Property Name="bDiabetes" Type="Byte" />
+          <Property Name="bHD" Type="Byte" />
+          <Property Name="bHighBldPrs" Type="Byte" />
+          <Property Name="bTobac" Type="Byte" />
+          <Property Name="cdPhysEx" Type="Int16" />
+          <Property Name="cdPap" Type="Int16" />
+          <Property Name="cdMam" Type="Int16" />
+          <Property Name="cdPros" Type="Int16" />
+          <Property Name="Exer" Type="Byte" />
+          <Property Name="Sys" Type="Int16" />
+          <Property Name="Dia" Type="Int16" />
+          <Property Name="HDL" Type="Int16" />
+          <Property Name="LDL" Type="Int16" />
+          <Property Name="Trigl" Type="Int16" />
+          <Property Name="CholLvl" Type="Int16" />
+          <Property Name="BodyFat" Type="Double" />
+          <Property Name="Glucose" Type="Int16" />
+          <Property Name="bGlucoseFasting" Type="Byte" />
+          <Property Name="WeightInLbs" Type="Int16" />
+          <Property Name="HeightInInches" Type="Int16" />
+          <Property Name="DEBatchID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="ModifiedByID" Type="Int32" />
+          <Property Name="CreateDT" Type="DateTime" Precision="3" />
+          <Property Name="LastModDt" Type="DateTime" Precision="3" />
+          <Property Name="bHighBldPrsTreated" Type="Byte" />
+          <Property Name="bSeasonalAllergies" Type="Byte" />
+          <Property Name="bDepressed" Type="Byte" />
+          <Property Name="bLostInterest" Type="Byte" />
+          <Property Name="C_bStressed" Type="Byte" />
+          <Property Name="Heartburn" Type="Byte" />
+          <Property Name="Headaches" Type="Byte" />
+          <Property Name="Seatbelts" Type="Byte" />
+          <Property Name="PSA" Type="Double" />
+          <Property Name="Osteo" Type="Double" />
+          <Property Name="bSpanish" Type="Byte" />
+          <Property Name="bBPChk" Type="Byte" />
+          <Property Name="bCholChk" Type="Byte" />
+          <Property Name="DiabetesType" Type="Byte" />
+          <Property Name="C_bSpanishPHP" Type="Byte" />
+          <Property Name="stress" Type="Byte" />
+          <Property Name="bsmokelesstobac" Type="Byte" />
+          <Property Name="bglucose" Type="Byte" />
+          <Property Name="restingpulse" Type="Int16" />
+          <Property Name="hip" Type="Double" />
+          <Property Name="waist" Type="Double" />
+          <Property Name="vo2" Type="Double" />
+          <Property Name="C_vo2type" Type="Int32" />
+          <Property Name="C_diamax" Type="Int16" />
+          <Property Name="C_sysmax" Type="Int16" />
+          <Property Name="C_heartratemax" Type="Int16" />
+          <Property Name="grip" Type="Double" />
+          <Property Name="griptypeID" Type="Int32" />
+          <Property Name="curlup" Type="Int16" />
+          <Property Name="abstypeID" Type="Int32" />
+          <Property Name="pushup" Type="Int16" />
+          <Property Name="flexibility" Type="Double" />
+          <Property Name="flexibilitytypeID" Type="Int32" />
+          <Property Name="cholesterolrange" Type="Int32" />
+          <Property Name="hdlrange" Type="Int32" />
+          <Property Name="ldlrange" Type="Int32" />
+          <Property Name="cholesterolratiorange" Type="Int32" />
+          <Property Name="triglrange" Type="Int32" />
+          <Property Name="glucoserange" Type="Int32" />
+          <Property Name="vo2maxrange" Type="Int32" />
+          <Property Name="griprange" Type="Int32" />
+          <Property Name="flexibilityrange" Type="Int32" />
+          <Property Name="absrange" Type="Int32" />
+          <Property Name="pushuprange" Type="Int32" />
+          <Property Name="weightrange" Type="Int32" />
+          <Property Name="bprange" Type="Int32" />
+          <Property Name="hbdrange" Type="Int32" />
+          <Property Name="bodyfatrange" Type="Int32" />
+          <Property Name="waisttohiprange" Type="Int32" />
+          <Property Name="psarange" Type="Int32" />
+          <Property Name="ScanID" Type="Int32" />
+          <Property Name="CompletedOnlineSurvey" Type="Byte" />
+          <Property Name="OriginalScanID" Type="Int32" />
+          <Property Name="waistcircumferencerange" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="aeghealthEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAnswers" EntityType="Self.tblAnswer" />
+          <EntitySet Name="tblConsumers" EntityType="Self.tblConsumer" />
+          <EntitySet Name="tblConsumerHistories" EntityType="Self.tblConsumerHistory" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="aeghealthModelStoreContainer" CdmEntityContainer="aeghealthEntities">
+          <EntitySetMapping Name="tblAnswers">
+            <EntityTypeMapping TypeName="aeghealthModel.tblAnswer">
+              <MappingFragment StoreEntitySet="tblAnswer">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="ConsumerHistoryID" ColumnName="ConsumerHistoryID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="CreateDt" ColumnName="CreateDt" />
+                <ScalarProperty Name="LastModDt" ColumnName="LastModDt" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConsumers">
+            <EntityTypeMapping TypeName="aeghealthModel.tblConsumer">
+              <MappingFragment StoreEntitySet="tblConsumer">
+                <ScalarProperty Name="ConsumerID" ColumnName="ConsumerID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="LN" ColumnName="LN" />
+                <ScalarProperty Name="FN" ColumnName="FN" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="LNSoundex" ColumnName="LNSoundex" />
+                <ScalarProperty Name="MlAddr1" ColumnName="MlAddr1" />
+                <ScalarProperty Name="C_MlAddr2" ColumnName="_MlAddr2" />
+                <ScalarProperty Name="MlCity" ColumnName="MlCity" />
+                <ScalarProperty Name="MlState" ColumnName="MlState" />
+                <ScalarProperty Name="MlZip" ColumnName="MlZip" />
+                <ScalarProperty Name="AcTel" ColumnName="AcTel" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+                <ScalarProperty Name="C_SSN" ColumnName="_SSN" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="bChildren" ColumnName="bChildren" />
+                <ScalarProperty Name="NumChildren" ColumnName="NumChildren" />
+                <ScalarProperty Name="MaritalStatusID" ColumnName="MaritalStatusID" />
+                <ScalarProperty Name="bFamilyIns" ColumnName="bFamilyIns" />
+                <ScalarProperty Name="C_bIns" ColumnName="_bIns" />
+                <ScalarProperty Name="bHasDr" ColumnName="bHasDr" />
+                <ScalarProperty Name="DrName" ColumnName="DrName" />
+                <ScalarProperty Name="DrLocCit" ColumnName="DrLocCit" />
+                <ScalarProperty Name="DrLocSt" ColumnName="DrLocSt" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="EmploymentStatusID" ColumnName="EmploymentStatusID" />
+                <ScalarProperty Name="bFamHisCancer" ColumnName="bFamHisCancer" />
+                <ScalarProperty Name="bFamHisHd" ColumnName="bFamHisHd" />
+                <ScalarProperty Name="bFamHisDiabetes" ColumnName="bFamHisDiabetes" />
+                <ScalarProperty Name="InsCarrier" ColumnName="InsCarrier" />
+                <ScalarProperty Name="bFailedValidateAddr" ColumnName="bFailedValidateAddr" />
+                <ScalarProperty Name="NAGroupName" ColumnName="NAGroupName" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+                <ScalarProperty Name="LastModDt" ColumnName="LastModDt" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lon" ColumnName="Lon" />
+                <ScalarProperty Name="GeoResult" ColumnName="GeoResult" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="InsProviderID" ColumnName="InsProviderID" />
+                <ScalarProperty Name="YoungestChildYOB" ColumnName="YoungestChildYOB" />
+                <ScalarProperty Name="bFamHisHighBldPrs" ColumnName="bFamHisHighBldPrs" />
+                <ScalarProperty Name="bFamHisOsteo" ColumnName="bFamHisOsteo" />
+                <ScalarProperty Name="bFamHisStroke" ColumnName="bFamHisStroke" />
+                <ScalarProperty Name="PreferredHospital" ColumnName="PreferredHospital" />
+                <ScalarProperty Name="InsCarrierTypeID" ColumnName="InsCarrierTypeID" />
+                <ScalarProperty Name="bDoNotMarketTo" ColumnName="bDoNotMarketTo" />
+                <ScalarProperty Name="ssnlastfour" ColumnName="ssnlastfour" />
+                <ScalarProperty Name="Custom1" ColumnName="Custom1" />
+                <ScalarProperty Name="Custom2" ColumnName="Custom2" />
+                <ScalarProperty Name="Custom3" ColumnName="Custom3" />
+                <ScalarProperty Name="Custom4" ColumnName="Custom4" />
+                <ScalarProperty Name="Custom5" ColumnName="Custom5" />
+                <ScalarProperty Name="Custom6" ColumnName="Custom6" />
+                <ScalarProperty Name="Custom7" ColumnName="Custom7" />
+                <ScalarProperty Name="Custom8" ColumnName="Custom8" />
+                <ScalarProperty Name="Custom9" ColumnName="Custom9" />
+                <ScalarProperty Name="Custom10" ColumnName="Custom10" />
+                <ScalarProperty Name="mailcarrt" ColumnName="mailcarrt" />
+                <ScalarProperty Name="mailerrorcodes" ColumnName="mailerrorcodes" />
+                <ScalarProperty Name="maillotnum" ColumnName="maillotnum" />
+                <ScalarProperty Name="maildpc" ColumnName="maildpc" />
+                <ScalarProperty Name="mailpresortid" ColumnName="mailpresortid" />
+                <ScalarProperty Name="mailtrayid" ColumnName="mailtrayid" />
+                <ScalarProperty Name="mailpackageid" ColumnName="mailpackageid" />
+                <ScalarProperty Name="mailendorsementline" ColumnName="mailendorsementline" />
+                <ScalarProperty Name="maildpbarcode" ColumnName="maildpbarcode" />
+                <ScalarProperty Name="mailws" ColumnName="mailws" />
+                <ScalarProperty Name="tempid" ColumnName="tempid" />
+                <ScalarProperty Name="LastPHRMailDt" ColumnName="LastPHRMailDt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblConsumerHistories">
+            <EntityTypeMapping TypeName="aeghealthModel.tblConsumerHistory">
+              <MappingFragment StoreEntitySet="tblConsumerHistory">
+                <ScalarProperty Name="ConsumerHistoryID" ColumnName="ConsumerHistoryID" />
+                <ScalarProperty Name="ConsumerID" ColumnName="ConsumerID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="bArth" ColumnName="bArth" />
+                <ScalarProperty Name="bAsthma" ColumnName="bAsthma" />
+                <ScalarProperty Name="bDiabetes" ColumnName="bDiabetes" />
+                <ScalarProperty Name="bHD" ColumnName="bHD" />
+                <ScalarProperty Name="bHighBldPrs" ColumnName="bHighBldPrs" />
+                <ScalarProperty Name="bTobac" ColumnName="bTobac" />
+                <ScalarProperty Name="cdPhysEx" ColumnName="cdPhysEx" />
+                <ScalarProperty Name="cdPap" ColumnName="cdPap" />
+                <ScalarProperty Name="cdMam" ColumnName="cdMam" />
+                <ScalarProperty Name="cdPros" ColumnName="cdPros" />
+                <ScalarProperty Name="Exer" ColumnName="Exer" />
+                <ScalarProperty Name="Sys" ColumnName="Sys" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="HDL" ColumnName="HDL" />
+                <ScalarProperty Name="LDL" ColumnName="LDL" />
+                <ScalarProperty Name="Trigl" ColumnName="Trigl" />
+                <ScalarProperty Name="CholLvl" ColumnName="CholLvl" />
+                <ScalarProperty Name="BodyFat" ColumnName="BodyFat" />
+                <ScalarProperty Name="Glucose" ColumnName="Glucose" />
+                <ScalarProperty Name="bGlucoseFasting" ColumnName="bGlucoseFasting" />
+                <ScalarProperty Name="WeightInLbs" ColumnName="WeightInLbs" />
+                <ScalarProperty Name="HeightInInches" ColumnName="HeightInInches" />
+                <ScalarProperty Name="DEBatchID" ColumnName="DEBatchID" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="ModifiedByID" ColumnName="ModifiedByID" />
+                <ScalarProperty Name="CreateDT" ColumnName="CreateDT" />
+                <ScalarProperty Name="LastModDt" ColumnName="LastModDt" />
+                <ScalarProperty Name="bHighBldPrsTreated" ColumnName="bHighBldPrsTreated" />
+                <ScalarProperty Name="bSeasonalAllergies" ColumnName="bSeasonalAllergies" />
+                <ScalarProperty Name="bDepressed" ColumnName="bDepressed" />
+                <ScalarProperty Name="bLostInterest" ColumnName="bLostInterest" />
+                <ScalarProperty Name="C_bStressed" ColumnName="_bStressed" />
+                <ScalarProperty Name="Heartburn" ColumnName="Heartburn" />
+                <ScalarProperty Name="Headaches" ColumnName="Headaches" />
+                <ScalarProperty Name="Seatbelts" ColumnName="Seatbelts" />
+                <ScalarProperty Name="PSA" ColumnName="PSA" />
+                <ScalarProperty Name="Osteo" ColumnName="Osteo" />
+                <ScalarProperty Name="bSpanish" ColumnName="bSpanish" />
+                <ScalarProperty Name="bBPChk" ColumnName="bBPChk" />
+                <ScalarProperty Name="bCholChk" ColumnName="bCholChk" />
+                <ScalarProperty Name="DiabetesType" ColumnName="DiabetesType" />
+                <ScalarProperty Name="C_bSpanishPHP" ColumnName="_bSpanishPHP" />
+                <ScalarProperty Name="stress" ColumnName="stress" />
+                <ScalarProperty Name="bsmokelesstobac" ColumnName="bsmokelesstobac" />
+                <ScalarProperty Name="bglucose" ColumnName="bglucose" />
+                <ScalarProperty Name="restingpulse" ColumnName="restingpulse" />
+                <ScalarProperty Name="hip" ColumnName="hip" />
+                <ScalarProperty Name="waist" ColumnName="waist" />
+                <ScalarProperty Name="vo2" ColumnName="vo2" />
+                <ScalarProperty Name="C_vo2type" ColumnName="_vo2type" />
+                <ScalarProperty Name="C_diamax" ColumnName="_diamax" />
+                <ScalarProperty Name="C_sysmax" ColumnName="_sysmax" />
+                <ScalarProperty Name="C_heartratemax" ColumnName="_heartratemax" />
+                <ScalarProperty Name="grip" ColumnName="grip" />
+                <ScalarProperty Name="griptypeID" ColumnName="griptypeID" />
+                <ScalarProperty Name="curlup" ColumnName="curlup" />
+                <ScalarProperty Name="abstypeID" ColumnName="abstypeID" />
+                <ScalarProperty Name="pushup" ColumnName="pushup" />
+                <ScalarProperty Name="flexibility" ColumnName="flexibility" />
+                <ScalarProperty Name="flexibilitytypeID" ColumnName="flexibilitytypeID" />
+                <ScalarProperty Name="cholesterolrange" ColumnName="cholesterolrange" />
+                <ScalarProperty Name="hdlrange" ColumnName="hdlrange" />
+                <ScalarProperty Name="ldlrange" ColumnName="ldlrange" />
+                <ScalarProperty Name="cholesterolratiorange" ColumnName="cholesterolratiorange" />
+                <ScalarProperty Name="triglrange" ColumnName="triglrange" />
+                <ScalarProperty Name="glucoserange" ColumnName="glucoserange" />
+                <ScalarProperty Name="vo2maxrange" ColumnName="vo2maxrange" />
+                <ScalarProperty Name="griprange" ColumnName="griprange" />
+                <ScalarProperty Name="flexibilityrange" ColumnName="flexibilityrange" />
+                <ScalarProperty Name="absrange" ColumnName="absrange" />
+                <ScalarProperty Name="pushuprange" ColumnName="pushuprange" />
+                <ScalarProperty Name="weightrange" ColumnName="weightrange" />
+                <ScalarProperty Name="bprange" ColumnName="bprange" />
+                <ScalarProperty Name="hbdrange" ColumnName="hbdrange" />
+                <ScalarProperty Name="bodyfatrange" ColumnName="bodyfatrange" />
+                <ScalarProperty Name="waisttohiprange" ColumnName="waisttohiprange" />
+                <ScalarProperty Name="psarange" ColumnName="psarange" />
+                <ScalarProperty Name="ScanID" ColumnName="ScanID" />
+                <ScalarProperty Name="CompletedOnlineSurvey" ColumnName="CompletedOnlineSurvey" />
+                <ScalarProperty Name="OriginalScanID" ColumnName="OriginalScanID" />
+                <ScalarProperty Name="waistcircumferencerange" ColumnName="waistcircumferencerange" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
