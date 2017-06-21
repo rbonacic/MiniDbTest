@@ -8,9 +8,9 @@ namespace MiniDbTest
     [CodedUITest]
     public class CodedUiTest1
     {
-        private readonly IList<TestAnswers> _answerValues;
-        private readonly IList<TestConsumerHistory> _consumerHistoryvalues;
-        private readonly IList<TestConsumer> _consumervalues;
+        private readonly IList<TestAnswersModel> _answerValues;
+        private readonly IList<TestConsumerHistoryModel> _consumerHistoryvalues;
+        private readonly IList<TestConsumerModel> _consumervalues;
 
         public CodedUiTest1()
         {
@@ -19,11 +19,11 @@ namespace MiniDbTest
             _consumerHistoryvalues = HydrateConsumerHistoryValues();
         }
 
-        private IList<TestAnswers> HydrateAnswerValues()
+        private IList<TestAnswersModel> HydrateAnswerValues()
         {
-            var returnList = new List<TestAnswers>();
+            var returnList = new List<TestAnswersModel>();
 
-            var answer = new TestAnswers
+            var answer = new TestAnswersModel
             {
                 ConsumerHistoryId = 1234,
                 QuestionId = 10,
@@ -40,11 +40,11 @@ namespace MiniDbTest
             return returnList;
         }
 
-        private IList<TestConsumer> HydrateConsumerValues()
+        private IList<TestConsumerModel> HydrateConsumerValues()
         {
-            var returnList = new List<TestConsumer>();
+            var returnList = new List<TestConsumerModel>();
 
-            var consumerData = new TestConsumer
+            var consumerData = new TestConsumerModel
             {
                 GroupID = 12345,
                 LN = "Mctest",
@@ -80,8 +80,7 @@ namespace MiniDbTest
 
             return returnList;
         }
-
-        private IList<TestConsumerHistory> HydrateConsumerHistoryValues()
+        private IList<TestConsumerHistoryModel> HydrateConsumerHistoryValues()
         {
             var returnList = new List<TestConsumerHistory>();
 
@@ -132,7 +131,7 @@ namespace MiniDbTest
                 ConsumerRepository.UpdateConsumer(consumervalue.ConsumerID, consumerupdatevalues.Update_MlAddr1,
                     consumerupdatevalues.Update_SSN);
 
-                Assert.AreEqual("Tester", consumervalue.FN);
+                Assert.AreEqual(consumervalue.FN, consumerupdatevalues.FN);
                 Assert.AreEqual("Mctest", consumervalue.LN);
             }
 

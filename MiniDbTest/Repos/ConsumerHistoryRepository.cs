@@ -36,21 +36,33 @@ namespace MiniDbTest
 
         }
 
-        public static void AddNewConsumerHistoryRow(TestConsumerHistory consumerhistory)
+        public static void AddNewConsumerHistoryRow(TestConsumerHistoryModel consumerhistory)
         {
 
             {
                 aeghealthEntities dataModel = new aeghealthEntities();
                 tblConsumerHistory consumerHistorydata = new tblConsumerHistory()
                 {
-                   EventID = consumerhistory.EventID,
-                   ConsumerID = consumerhistory.ConsumerID,
-                   LDL = consumerhistory.LDL
-                   
+                    EventID = consumerhistory.EventID,
+                    ConsumerID = consumerhistory.ConsumerID,
+                    LDL = consumerhistory.LDL
+
                 };
                 dataModel.tblConsumerHistories.Add(consumerHistorydata);
                 dataModel.SaveChanges();
             }
         }
+
+
+        public static void DeleteConsumerHistoryRow(long consumerHistoryId)
+        {
+            var deleteAnswer = new aeghealthEntities();
+            var deleterow = deleteAnswer.tblConsumerHistories
+                .First(x => x.ConsumerHistoryID == consumerHistoryId);
+
+            deleteAnswer.tblConsumerHistories.Remove(deleterow);
+            deleteAnswer.SaveChanges();
+        }
     }
 }
+

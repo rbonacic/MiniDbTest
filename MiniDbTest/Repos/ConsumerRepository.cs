@@ -34,10 +34,9 @@ namespace MiniDbTest
                             && i.LN == ln); // another Value in the (where clause) 
 
             return consumerlookup;
-
         }
 
-        public static void AddNewConsumerRow(TestConsumer consumer)
+        public static void AddNewConsumerRow(TestConsumerModel consumer)
         {
             aeghealthEntities context = new aeghealthEntities();
             tblConsumer consumerdata = new tblConsumer()
@@ -54,7 +53,6 @@ namespace MiniDbTest
                MlZip  = consumer.MlZip,
                AcTel = consumer.AcTel,
                Tel = consumer.Tel,
-               //RaceID = consumer.RaceID,
                C_SSN = consumer.C_SSN,
                DOB = consumer.DOB,
                bChildren = consumer.bChildren,
@@ -69,6 +67,15 @@ namespace MiniDbTest
             };
             context.tblConsumers.Add(consumerdata);
             context.SaveChanges();
+        }
+        public static void DeleteConsumerRow(long consumerId)
+        {
+            var deleteconsumer = new aeghealthEntities();
+            var deleterow = deleteconsumer.tblConsumers
+                .First(x => x.ConsumerID == consumerId);
+
+            deleteconsumer.tblConsumers.Remove(deleterow);
+            deleteconsumer.SaveChanges();
         }
 
 

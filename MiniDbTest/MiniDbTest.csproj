@@ -100,9 +100,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CodeduiTest.cs" />
-    <Compile Include="ConsumerHistoryRepository.cs" />
-    <Compile Include="ConsumerRepository.cs" />
+    <Compile Include="Test\CodeduiTest.cs" />
+    <Compile Include="Repos\ConsumerHistoryRepository.cs" />
+    <Compile Include="Repos\ConsumerRepository.cs" />
     <Compile Include="Models\EntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,11 +133,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AnswerRepository.cs" />
-    <Compile Include="tblConsumerHistoryInsert.cs" />
-    <Compile Include="TestAnswers.cs" />
-    <Compile Include="TestConsumer.cs" />
-    <Compile Include="TestConsumerHistory.cs" />
+    <Compile Include="Repos\AnswerRepository.cs" />
+    <Compile Include="Models\TestAnswersModel.cs" />
+    <Compile Include="Models\TestConsumerModel.cs" />
+    <Compile Include="Models\TestConsumerHistoryModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

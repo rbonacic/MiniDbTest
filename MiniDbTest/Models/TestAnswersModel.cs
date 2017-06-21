@@ -1,6 +1,6 @@
 ﻿namespace MiniDbTest
 {
-    public class TestAnswers
+    public class TestAnswersModel
     {
         public int ConsumerHistoryId;
 
